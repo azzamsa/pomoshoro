@@ -1,32 +1,50 @@
 #!/bin/bash
 
+mapfile -t compliments < words.txt
+
 work=1
 break=1
+
+# get random compliments
+function get_rand_compliments(){
+    my_random=$((1 + RANDOM % 104))
+    compliment=${compliments[my_random]}
+}
 
 function work_end(){
     if [ $work = 4 ]; then
         aplay ~/.emacs.d/elisp/pomodoro/early-sunrise-yey.wav &
+        # reset time
+        $work=0
+        $break=0
     else
         aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav &
     fi
     #zenity --warning --text="break time \n You work $work times"
     for_window [class="Yad"] floating enable border pixel 0 # for i3wm
-    yad --title "Break Time" --warning --text "<b>Great work</b> have a nice break \n You work $work times" --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
+    yad --title "Break Time" --warning --text "<b>$compliment</b> \n have a nice break \n You work $work times" --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
     let work++
 }
 
 function break_end(){
     aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav &
-    yad --title "Work Time" --warning --text=" <b>Spirit</b> back to work \n You break $break times" # a short, 5-minute break
+    yad --title "Work Time" --warning --text=" <b>$compliment</b> \n back to work \n You break $break times"
     let break++
 }
 
 while :
 do
-    echo "Press [CTRL+C] to stop!"
-    sleep 1500
+    echo "Press [CTRL+C] to stop."
+    echo "Yes you can!"
+    sleep 1500 # 25 minutes work
+    get_rand_compliments
     work_end
 
-    sleep 300
+    if [ $work = 4 ]; then
+        sleep 1800 # 30 minutes break
+    else
+        sleep 300 # 5 minutes break
+    fi
+    get_rand_compliments
     break_end
 done
