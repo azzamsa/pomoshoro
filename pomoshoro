@@ -14,9 +14,6 @@ function get_rand_compliments(){
 function work_end(){
     if (( $work % 4 == 0 )); then
         aplay -q ~/sounds/early-sunrise-yey.wav &
-        # reset time
-        $work=0
-        $break=0
     else
         aplay -q ~/sounds/wind-chime-rest.wav &
     fi
