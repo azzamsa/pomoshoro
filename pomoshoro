@@ -12,7 +12,7 @@ function get_rand_compliments(){
 }
 
 function work_end(){
-    if [ $work = 4 ]; then
+    if (( $work % 4 == 0 )); then
         aplay -q ~/sounds/early-sunrise-yey.wav &
         # reset time
         $work=0
@@ -61,7 +61,7 @@ do
         work_end
 
         # break
-        if [ $work = 4 ]; then
+        if (( $work % 4 == 0 )); then
             sleep 1800 & countdown 1800 # 30 minutes break
         else
             sleep 300 & countdown 300 # 5 minutes break
