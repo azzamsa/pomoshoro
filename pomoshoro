@@ -22,13 +22,13 @@ function work_end(){
     fi
     #zenity --warning --text="break time \n You work $work times"
     for_window [class="Yad"] floating enable border pixel 0 # for i3wm
-    yad --title "Break Time" --warning --text "<b>$compliment</b> \n have a nice break \n You work $work times" --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
+    yad --title "Break Time" --warning --text "<b>$compliment</b> \n Have a nice break." --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
     let work++
 }
 
 function break_end(){
     aplay ~/sounds/sparkle-work.wav &
-    yad --title "Work Time" --warning --text=" <b>$compliment</b> \n back to work \n You break $break times"
+    yad --title "Work Time" --warning --text=" <b>$compliment</b> \n Back to work."
     let break++
 }
 
@@ -44,15 +44,24 @@ while :
 do
     echo "Press [CTRL+C] to stop."
     echo "Yes you can!"
-    sleep 1500 & countdown 1500 # 25 minutes work
-    get_rand_compliments
-    work_end
 
-    if [ $work = 4 ]; then
-        sleep 1800 & countdown 1800 # 30 minutes break
-    else
-        sleep 300 & countdown 300 # 5 minutes break
-    fi
-    get_rand_compliments
-    break_end
+    # work
+    sleep 1500 & \
+        if [ $work = 1 ]; then
+            echo "You work $work time"
+        else
+            echo "You work $work times"
+        fi
+        countdown 1500 # 25 minutes work
+        get_rand_compliments
+        work_end
+
+        # break
+        if [ $work = 4 ]; then
+            sleep 1800 & countdown 1800 # 30 minutes break
+        else
+            sleep 300 & countdown 300 # 5 minutes break
+        fi
+        get_rand_compliments
+        break_end
 done
