@@ -21,7 +21,6 @@ function work_end(){
         aplay ~/sounds/wind-chime-rest.wav &
     fi
     #zenity --warning --text="break time \n You work $work times"
-    for_window [class="Yad"] floating enable border pixel 0 # for i3wm
     yad --title "Break Time" --warning --text "<b>$compliment</b> \n Have a nice break." --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
     let work++
 }
