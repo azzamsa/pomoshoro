@@ -20,13 +20,19 @@ function work_end(){
     else
         aplay ~/sounds/wind-chime-rest.wav &
     fi
-    yad --title "Break Time" --warning --text "<b>$compliment</b> \n Have a nice break." --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
+    yad --title "Break Time" --warning --text \
+        "<b>$compliment</b> \n Have a nice break." \
+        --text-align center --width=350 --height=100 --center \
+        --button=gtk-cancel:252 --button=gtk-ok:0 --buttons-layout=center
     let work++
 }
 
 function break_end(){
     aplay ~/sounds/sparkle-work.wav &
-    yad --title "Work Time" --warning --text=" <b>$compliment</b> \n Back to work."
+    yad --title "Work Time" --warning --text \
+        "<b>$compliment</b> \n Back to work." \
+        --text-align center --width=350 --height=100 --center \
+        --button=gtk-cancel:252 --button=gtk-ok:0 --buttons-layout=center
     let break++
 }
 
