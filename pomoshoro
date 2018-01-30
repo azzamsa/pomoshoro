@@ -13,12 +13,12 @@ function get_rand_compliments(){
 
 function work_end(){
     if [ $work = 4 ]; then
-        aplay ~/.emacs.d/elisp/pomodoro/early-sunrise-yey.wav &
+        aplay ~/sounds/early-sunrise-yey.wav &
         # reset time
         $work=0
         $break=0
     else
-        aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav &
+        aplay ~/sounds/wind-chime-rest.wav &
     fi
     #zenity --warning --text="break time \n You work $work times"
     for_window [class="Yad"] floating enable border pixel 0 # for i3wm
@@ -27,7 +27,7 @@ function work_end(){
 }
 
 function break_end(){
-    aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav &
+    aplay ~/sounds/sparkle-work.wav &
     yad --title "Work Time" --warning --text=" <b>$compliment</b> \n back to work \n You break $break times"
     let break++
 }
