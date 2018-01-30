@@ -35,7 +35,7 @@ chmod +x pomoshoro
 
 The nice way is to auto-start `pomoshoro` with your window-manager or desktop-environment
 
-**Don't forget to** create `~sounds` directory and put any sounds you want, then change the song name in [pomoshoro script](https://github.com/azzamsa/pomoshoro/blob/6d9860d3f98c620e591ad6b559f6e8268f660136/pomoshoro#L16) according to your sound name.
+**Don't forget to** create `~/sounds` directory and put any sounds you want, then change the song name in [pomoshoro script](https://github.com/azzamsa/pomoshoro/blob/6d9860d3f98c620e591ad6b559f6e8268f660136/pomoshoro#L16) according to your sound name.
 
 ## Authors
 
