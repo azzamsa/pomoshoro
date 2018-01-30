@@ -13,12 +13,12 @@ function get_rand_compliments(){
 
 function work_end(){
     if [ $work = 4 ]; then
-        aplay ~/sounds/early-sunrise-yey.wav &
+        aplay -q ~/sounds/early-sunrise-yey.wav &
         # reset time
         $work=0
         $break=0
     else
-        aplay ~/sounds/wind-chime-rest.wav &
+        aplay -q ~/sounds/wind-chime-rest.wav &
     fi
     yad --title "Break Time" --warning --text \
         "<b>$compliment</b> \n Have a nice break." \
@@ -28,7 +28,7 @@ function work_end(){
 }
 
 function break_end(){
-    aplay ~/sounds/sparkle-work.wav &
+    aplay -q ~/sounds/sparkle-work.wav &
     yad --title "Work Time" --warning --text \
         "<b>$compliment</b> \n Back to work." \
         --text-align center --width=350 --height=100 --center \
