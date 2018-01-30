@@ -1,16 +1,32 @@
 #!/bin/bash
 
-# round 1
-sleep 1500 && aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav && zenity --warning --text="break time"
-sleep 300 && aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav && zenity --warning --text="back to work" # a short, 5-minute break
-# round 2
-sleep 1500 && aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav && zenity --warning --text="break time"
-sleep 300 && aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav && zenity --warning --text="back to work"
-# round 3
-sleep 1500 && aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav && zenity --warning --text="break time"
-sleep 300 && aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav && zenity --warning --text="back to work"
-# round 4
-sleep 1500 && aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav && zenity --warning --text="break time"
-sleep 900 && aplay ~/.emacs.d/elisp/pomodoro/early-sunrise-yey.wav && zenity --warning --text="back to work" # a long, 15-minute break
+work=1
+break=1
 
-# credit Waldir Leoncio
+function work_end(){
+    if [ $work = 4 ]; then
+        aplay ~/.emacs.d/elisp/pomodoro/early-sunrise-yey.wav &
+    else
+        aplay ~/.emacs.d/elisp/pomodoro/wind-chime-rest.wav &
+    fi
+    #zenity --warning --text="break time \n You work $work times"
+    for_window [class="Yad"] floating enable border pixel 0 # for i3wm
+    yad --title "Break Time" --warning --text "<b>Great work</b> have a nice break \n You work $work times" --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
+    let work++
+}
+
+function break_end(){
+    aplay ~/.emacs.d/elisp/pomodoro/sparkle-work.wav &
+    yad --title "Work Time" --warning --text=" <b>Spirit</b> back to work \n You break $break times" # a short, 5-minute break
+    let break++
+}
+
+while :
+do
+    echo "Press [CTRL+C] to stop!"
+    sleep 1500
+    work_end
+
+    sleep 300
+    break_end
+done
