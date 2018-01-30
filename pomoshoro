@@ -20,7 +20,6 @@ function work_end(){
     else
         aplay ~/sounds/wind-chime-rest.wav &
     fi
-    #zenity --warning --text="break time \n You work $work times"
     yad --title "Break Time" --warning --text "<b>$compliment</b> \n Have a nice break." --width=300 --center --button="gtk-cancel:252" --button="gtk-ok:0"
     let work++
 }
