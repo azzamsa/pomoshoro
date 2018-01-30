@@ -2,6 +2,12 @@
 
 Simple pomodoro script to boost focus and productivity
 
+## Features
+
+- Notification using YAD
+- Display real-time countdown
+- Use compliment words to motivate user
+
 ## Getting Started
 
 ### Prerequisites
