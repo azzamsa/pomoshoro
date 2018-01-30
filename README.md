@@ -48,5 +48,6 @@ This project is licensed under the GPLv3 License - see the [LICENSE.md](LICENSE.
 
 ## Acknowledgments
 
+- Great thanks for Reza Azzubair W who has told me about pomodoro technique in 2016.
 - Inspired by [Waldir Leoncio](https://superuser.com/users/120246/waldir-leoncio) in [Pomodoro timer for linux](https://superuser.com/questions/224265/pomodoro-timer-for-linux#669811)
 - [Timer function](https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal#611582) by [Terdon](https://superuser.com/users/151431/terdon)
