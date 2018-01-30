@@ -47,7 +47,7 @@ function countdown(){
 while :
 do
     echo "Press [CTRL+C] to stop."
-    echo "Yes you can!"
+    echo -e "\e[1mYes you can!"
 
     # work
     sleep 1500 & \
