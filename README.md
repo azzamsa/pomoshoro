@@ -8,6 +8,7 @@ Simple pomodoro script to boost focus and productivity
 - Display real-time countdown
 - Use compliment words to motivate user
 - Display how many times you have worked
+- Infinite pomodoro session
 
 ## Getting Started
 
