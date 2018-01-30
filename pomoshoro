@@ -41,6 +41,13 @@ function countdown(){
     done
 }
 
+function see_you() {
+    echo "See you in the next battle."
+}
+
+trap see_you EXIT
+
+
 while :
 do
     echo "Press [CTRL+C] to stop."
