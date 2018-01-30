@@ -32,18 +32,26 @@ function break_end(){
     let break++
 }
 
+function countdown(){
+   date1=$((`date +%s` + $1));
+   while [ "$date1" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
+
 while :
 do
     echo "Press [CTRL+C] to stop."
     echo "Yes you can!"
-    sleep 1500 # 25 minutes work
+    sleep 1500 & countdown 1500 # 25 minutes work
     get_rand_compliments
     work_end
 
     if [ $work = 4 ]; then
-        sleep 1800 # 30 minutes break
+        sleep 1800 & countdown 1800 # 30 minutes break
     else
-        sleep 300 # 5 minutes break
+        sleep 300 & countdown 300 # 5 minutes break
     fi
     get_rand_compliments
     break_end
