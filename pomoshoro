@@ -51,7 +51,7 @@ trap see_you EXIT
 while :
 do
     echo "Press [CTRL+C] to stop."
-    echo -e "\e[1mYes you can!"
+    echo -e "\033[1mYes you can!\033[0m"
 
     # work
     sleep 1500 & \
