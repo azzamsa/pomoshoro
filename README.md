@@ -10,6 +10,10 @@ Simple pomodoro script to boost focus and productivity
 - Display how many times you have worked
 - Infinite pomodoro session
 
+Here's a glimpse of Pomoshoro in action:
+
+![Projectile Screenshot](img/img-1-crop.png)
+
 ## Getting Started
 
 ### Prerequisites
