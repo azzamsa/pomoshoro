@@ -61,13 +61,13 @@ do
     echo -e "\033[1mYes you can!\033[0m"
 
     # work
-    get_rand_compliments && (sleep 5 & have_work & countdown 5 ) && work_end # 25 minutes wok
+    get_rand_compliments && (sleep 1500 & have_work & countdown 1500 ) && work_end # 25 minutes wok
 
     # break
     get_rand_compliments && \
-    if (( $break % 4 == 0 )); then
-        (sleep 15 & countdown 15) && break_end # 30 minutes break
-    else
-        (sleep 10 & countdown 10) && break_end # 5 minutes break
-    fi
+        if (( $break % 4 == 0 )); then
+            (sleep 1800 & countdown 1800) && break_end # 30 minutes break
+        else
+            (sleep 300 & countdown 300) && break_end # 5 minutes break
+        fi
 done
