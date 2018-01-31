@@ -12,7 +12,7 @@ Simple pomodoro script to boost focus and productivity
 
 Here's a glimpse of Pomoshoro in action:
 
-![Projectile Screenshot](img/img-1-crop.png)
+![Pomoshoro in action](img/img-1-crop.png)
 
 ## Getting Started
 
