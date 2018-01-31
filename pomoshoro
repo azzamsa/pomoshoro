@@ -65,7 +65,7 @@ do
         work_end
 
         # break
-        if (( $work % 4 == 0 )); then
+        if (( $break % 4 == 0 )); then
             sleep 1800 & countdown 1800 # 30 minutes break
         else
             sleep 300 & countdown 300 # 5 minutes break
